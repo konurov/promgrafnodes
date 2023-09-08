@@ -90,4 +90,4 @@ services:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
     restart: unless-stopped
     networks:
-      - monitor-net
+      - monitoring
