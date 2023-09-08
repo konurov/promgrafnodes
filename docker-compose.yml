@@ -20,7 +20,7 @@ services:
       - '--path.sysfs=/host/sys' 
       - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)' 
     ports: 
-      - 9100
+      - 9100:9100
     networks: 
       - monitoring 
   prometheus: 
@@ -37,7 +37,7 @@ services:
       - '--web.console.templates=/etc/prometheus/consoles' 
       - '--web.enable-lifecycle' 
     ports: 
-      - 9090
+      - 9090:9090
     networks: 
       - monitoring 
   grafana: 
@@ -45,7 +45,7 @@ services:
     container_name: grafana 
     restart: unless-stopped
     ports: 
-      - 3000
+      - 3000:3000
      
     volumes: 
       - ~/promgrafnodes/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources 
@@ -56,7 +56,7 @@ services:
     image: gcr.io/cadvisor/cadvisor:latest 
     container_name: cadvisor 
     ports: 
-      - 8081
+      - 8081:8081
     networks: 
       - monitoring 
     volumes: 
@@ -70,24 +70,6 @@ services:
     image: redis:latest 
     container_name: redis 
     ports: 
-      - 6379
+      - 6379:6379
     networks: 
-      - monitoring
-  caddy:
-    image: stefanprodan/caddy
-    container_name: caddy
-    ports:
-      - "3000:3000"
-      - "9090:9090"
-      - "9093:9093"
-      - "9091:9091"
-      - "8081:8080"
-      - "6379:6379"
-    volumes:
-      - ./caddy:/etc/caddy
-    environment:
-      - ADMIN_USER=${ADMIN_USER}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-    restart: unless-stopped
-    networks:
       - monitoring
