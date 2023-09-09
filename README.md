@@ -5,7 +5,7 @@ $ sudo sh get-docker.sh<br>
 Clone this repository on your Docker host, cd into test directory and run compose up:<br>
 $ git clone https://github.com/konurov/promgrafnodes.git<br>
 $ cd promgrafnodes<br>
-$ mkdir -p/promgrafnodes/grafana/provisioning<br>
+$ mkdir -p /grafana/provisioning<br>
 $ docker-compose up -d<br>
 
 
