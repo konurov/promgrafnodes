@@ -11,12 +11,12 @@ scrape_configs:
     static_configs: 
     - targets: ["node-exporter:9100"]
 
-  - job_name: "zabbix-server" 
+  - job_name: "cadvisor" 
     scrape_interval: 2s 
     static_configs: 
-    - targets: ["10.20.1.40:8081"]  
+    - targets: ["10.20.1.40:8082"]  
   
-  - job_name: "cadvisor" 
+  - job_name: "zabbix-server" 
     scrape_interval: 2s 
     static_configs: 
     - targets: ["10.20.1.37:9100"]
