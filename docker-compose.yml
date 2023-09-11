@@ -4,7 +4,7 @@ networks:
     driver: bridge 
 volumes: 
   prometheus_data: {} 
-  grafana_storage: {}
+  grafana_data: {}
 services: 
   node-exporter: 
     image: prom/node-exporter:latest 
@@ -49,7 +49,7 @@ services:
      
     volumes: 
       - ~/promgrafnodes/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources 
-      - 'grafana_storage:/var/lib/grafana' 
+      - 'grafana_data:/var/lib/grafana' 
     networks: 
       - monitoring 
   cadvisor: 
