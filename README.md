@@ -10,5 +10,5 @@ $ nano /prometheus/prometheus.yml<br>
 $ apt  install docker-compose<br>
 $ docker-compose up -d<br>
 <b>Installing Node Exporter on ubuntu 22.04 LTS<b>
-
+https://www.techbeginner.in/2022/12/node-exporter-package-installation-on-ubuntu-18-04-20-04-22-04-lts.html
 
