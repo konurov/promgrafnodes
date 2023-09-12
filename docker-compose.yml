@@ -1,7 +1,10 @@
 version: '3.8' 
 networks: 
   monitoring: 
-    driver: bridge 
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+      com.docker.network.bridge.name: "promgraf"
 volumes: 
   prometheus_data: {} 
   grafana_data: {}
@@ -56,6 +59,7 @@ services:
   cadvisor: 
     image: gcr.io/cadvisor/cadvisor:latest 
     container_name: cadvisor 
+    restart: unless-stopped
     ports: 
       - 8082:8080
     networks: 
@@ -69,7 +73,8 @@ services:
       - redis 
   redis: 
     image: redis:latest 
-    container_name: redis 
+    container_name: redis
+    restart: unless-stopped
     ports: 
       - 6379:6379
     networks: 
