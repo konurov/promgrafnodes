@@ -9,5 +9,6 @@ $ mkdir -p /grafana/provisioning<br>
 $ nano /prometheus/prometheus.yml<br>
 $ apt  install docker-compose<br>
 $ docker-compose up -d<br>
+<b>Installing Node Exporter on ubuntu 22.04 LTS<b>
 
 
