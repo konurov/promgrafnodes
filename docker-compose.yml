@@ -2,9 +2,6 @@ version: '3.8'
 networks: 
   monitoring: 
     driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv6: "false"
-      com.docker.network.bridge.name: "promgraf"
 volumes: 
   prometheus_data: {} 
   grafana_data: {}
