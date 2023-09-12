@@ -33,7 +33,7 @@ services:
     ports: 
       - 9090:9090 
     volumes:
-      - ~/promgrafnodes/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml 
+      - /promgrafnodes/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml 
       - prometheus_data:/prometheus 
     command: 
       - '--config.file=/etc/prometheus/prometheus.yml' 
@@ -52,7 +52,7 @@ services:
       - 3000:3000
      
     volumes: 
-      - ~/promgrafnodes/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources 
+      - /promgrafnodes/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources 
       - 'grafana_data:/var/lib/grafana' 
     networks: 
       - monitoring 
